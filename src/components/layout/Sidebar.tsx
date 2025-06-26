@@ -2,34 +2,35 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
-  bot, 
-  settings, 
-  book-open, 
-  message-square, 
-  users, 
-  folder,
-  plus
+  Bot, 
+  Settings, 
+  BookOpen, 
+  MessageSquare, 
+  Users, 
+  Folder,
+  Plus,
+  User
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 const navigation = [
-  { name: 'Dashboard', href: '/', icon: 'bot' },
-  { name: 'Bots', href: '/bots', icon: 'message-square' },
-  { name: 'Knowledge Hub', href: '/knowledge', icon: 'book-open' },
-  { name: 'Answer Review', href: '/review', icon: 'users' },
-  { name: 'Analytics', href: '/analytics', icon: 'folder' },
-  { name: 'Channels', href: '/channels', icon: 'settings' },
-  { name: 'Settings', href: '/settings', icon: 'settings' },
+  { name: 'Dashboard', href: '/', icon: 'Bot' },
+  { name: 'Bots', href: '/bots', icon: 'MessageSquare' },
+  { name: 'Knowledge Hub', href: '/knowledge', icon: 'BookOpen' },
+  { name: 'Answer Review', href: '/review', icon: 'Users' },
+  { name: 'Analytics', href: '/analytics', icon: 'Folder' },
+  { name: 'Channels', href: '/channels', icon: 'Settings' },
+  { name: 'Settings', href: '/settings', icon: 'Settings' },
 ];
 
 const iconMap = {
-  'bot': bot,
-  'message-square': message-square,
-  'book-open': book-open,
-  'users': users,
-  'folder': folder,
-  'settings': settings,
+  'Bot': Bot,
+  'MessageSquare': MessageSquare,
+  'BookOpen': BookOpen,
+  'Users': Users,
+  'Folder': Folder,
+  'Settings': Settings,
 };
 
 export const Sidebar: React.FC = () => {
@@ -54,7 +55,7 @@ export const Sidebar: React.FC = () => {
           onClick={() => navigate('/bots/new')}
           className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-medium"
         >
-          <plus className="w-4 h-4 mr-2" />
+          <Plus className="w-4 h-4 mr-2" />
           Create New Bot
         </Button>
       </div>
@@ -90,7 +91,7 @@ export const Sidebar: React.FC = () => {
       <div className="p-4 border-t border-gray-200">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-            <user className="w-4 h-4 text-gray-600" />
+            <User className="w-4 h-4 text-gray-600" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-gray-900 truncate">John Doe</p>
