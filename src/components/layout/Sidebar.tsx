@@ -9,7 +9,8 @@ import {
   Users, 
   Folder,
   Plus,
-  User
+  User,
+  X
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -33,12 +34,37 @@ const iconMap = {
   'Settings': Settings,
 };
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+  isMobile?: boolean;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const sidebarClasses = cn(
+    "fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
+    isMobile ? (isOpen ? "translate-x-0" : "-translate-x-full") : ""
+  );
+
   return (
-    <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
+    <div className={sidebarClasses}>
+      {/* Mobile close button */}
+      {isMobile && (
+        <div className="flex justify-end p-4 lg:hidden">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClose}
+            className="h-8 w-8 p-0"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </div>
+      )}
+
       {/* Logo and Brand */}
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center space-x-3">
