@@ -15,7 +15,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} isMobile={isMobile} />
-      <div className="flex-1 flex flex-col lg:ml-64">
+      <div className={`flex-1 flex flex-col ${!isMobile ? 'lg:ml-64' : ''}`}>
         <Header onMenuClick={() => setSidebarOpen(true)} />
         <main className="flex-1 p-4 lg:p-6 overflow-auto">
           {children}

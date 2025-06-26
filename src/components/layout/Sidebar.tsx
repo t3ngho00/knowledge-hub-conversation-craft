@@ -45,8 +45,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) =
   const navigate = useNavigate();
 
   const sidebarClasses = cn(
-    "fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
-    isMobile ? (isOpen ? "translate-x-0" : "-translate-x-full") : ""
+    "w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-in-out",
+    isMobile 
+      ? `fixed inset-y-0 left-0 z-50 ${isOpen ? "translate-x-0" : "-translate-x-full"}`
+      : "fixed inset-y-0 left-0 z-50 lg:translate-x-0"
   );
 
   return (
