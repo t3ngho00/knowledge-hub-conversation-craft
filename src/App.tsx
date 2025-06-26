@@ -7,6 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppLayout } from "./components/layout/AppLayout";
 import { Dashboard } from "./pages/Dashboard";
 import { Bots } from "./pages/Bots";
+import { KnowledgeHub } from "./pages/KnowledgeHub";
+import { AnswerReview } from "./pages/AnswerReview";
+import { Analytics } from "./pages/Analytics";
+import { Channels } from "./pages/Channels";
+import { Settings } from "./pages/Settings";
 import { PlaceholderPage } from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 
@@ -22,51 +27,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/bots" element={<Bots />} />
-            <Route 
-              path="/knowledge" 
-              element={
-                <PlaceholderPage 
-                  title="Knowledge Hub" 
-                  description="Manage your bot's knowledge base, upload documents, and configure data sources"
-                />
-              } 
-            />
-            <Route 
-              path="/review" 
-              element={
-                <PlaceholderPage 
-                  title="Answer Review" 
-                  description="Review flagged conversations and improve your bot's responses with human oversight"
-                />
-              } 
-            />
-            <Route 
-              path="/analytics" 
-              element={
-                <PlaceholderPage 
-                  title="Analytics & Insights" 
-                  description="Track your bot's performance, conversation metrics, and identify improvement opportunities"
-                />
-              } 
-            />
-            <Route 
-              path="/channels" 
-              element={
-                <PlaceholderPage 
-                  title="Channels & Integrations" 
-                  description="Connect your bots to messaging platforms and external systems"
-                />
-              } 
-            />
-            <Route 
-              path="/settings" 
-              element={
-                <PlaceholderPage 
-                  title="Settings" 
-                  description="Manage your workspace, users, billing, and account preferences"
-                />
-              } 
-            />
+            <Route path="/knowledge" element={<KnowledgeHub />} />
+            <Route path="/review" element={<AnswerReview />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/channels" element={<Channels />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="/bots/new" element={<PlaceholderPage title="Bot Builder" description="Create and configure your new chatbot with our visual flow builder" />} />
             <Route path="/bots/:id" element={<PlaceholderPage title="Bot Details" description="View and manage your bot's configuration and performance" />} />
             <Route path="/bots/:id/edit" element={<PlaceholderPage title="Bot Editor" description="Edit your bot's conversation flow and settings" />} />
