@@ -13,6 +13,9 @@ import { Analytics } from "./pages/Analytics";
 import { Channels } from "./pages/Channels";
 import { Settings } from "./pages/Settings";
 import { PlaceholderPage } from "./pages/PlaceholderPage";
+import { BotDetails } from "./pages/BotDetails";
+import { BotEditor } from "./pages/BotEditor";
+import { BotBuilder } from "./pages/BotBuilder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,9 +35,9 @@ const App = () => (
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/channels" element={<Channels />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/bots/new" element={<PlaceholderPage title="Bot Builder" description="Create and configure your new chatbot with our visual flow builder" />} />
-            <Route path="/bots/:id" element={<PlaceholderPage title="Bot Details" description="View and manage your bot's configuration and performance" />} />
-            <Route path="/bots/:id/edit" element={<PlaceholderPage title="Bot Editor" description="Edit your bot's conversation flow and settings" />} />
+            <Route path="/bots/new" element={<BotBuilder />} />
+            <Route path="/bots/:id" element={<BotDetails />} />
+            <Route path="/bots/:id/edit" element={<BotEditor />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AppLayout>
