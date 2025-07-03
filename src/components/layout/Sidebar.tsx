@@ -51,6 +51,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) =
       : "translate-x-0"
   );
 
+  const handleCloseClick = () => {
+    console.log('Close button clicked', { onClose });
+    if (onClose) {
+      onClose();
+    }
+  };
+
   return (
     <div className={sidebarClasses}>
       {/* Close button - always visible */}
@@ -58,7 +65,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) =
         <Button
           variant="ghost"
           size="sm"
-          onClick={onClose}
+          onClick={handleCloseClick}
           className="h-8 w-8 p-0"
         >
           <X className="h-4 w-4" />
