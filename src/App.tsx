@@ -16,6 +16,7 @@ import { PlaceholderPage } from "./pages/PlaceholderPage";
 import { BotDetails } from "./pages/BotDetails";
 import { BotEditor } from "./pages/BotEditor";
 import { BotBuilder } from "./pages/BotBuilder";
+import { ActivityPage } from "./pages/ActivityPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/channels" element={<Channels />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/activity" element={<ActivityPage />} />
             <Route path="/bots/new" element={<BotBuilder />} />
             <Route path="/bots/:id" element={<BotDetails />} />
             <Route path="/bots/:id/edit" element={<BotEditor />} />
