@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MessageSquare, Users, TrendingUp, AlertCircle } from 'lucide-react';
 import { StatsCard } from '@/components/dashboard/StatsCard';
@@ -97,7 +96,12 @@ export const Dashboard: React.FC = () => {
 
       {/* Recent Activity */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h2>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-semibold text-gray-900">Recent Activity</h2>
+          <Button variant="outline" onClick={() => navigate('/activity')}>
+            View All
+          </Button>
+        </div>
         <div className="space-y-3">
           <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -121,7 +125,7 @@ export const Dashboard: React.FC = () => {
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-gray-900">Your Bots</h2>
-          <Button variant="outline" onClick={() => navigate('/bots')}>
+          <Button variant="outline" onClick={() => navigate('/bots', { state: { from: 'dashboard' } })}>
             View All
           </Button>
         </div>

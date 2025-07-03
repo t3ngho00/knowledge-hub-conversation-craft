@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Bell, Search, Menu } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { NotificationsDropdown } from './NotificationsDropdown';
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -33,12 +34,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         </div>
         
         <div className="flex items-center space-x-3">
-          <Button variant="ghost" size="sm" className="relative">
-            <Bell className="h-5 w-5 text-gray-600" />
-            <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">
-              3
-            </span>
-          </Button>
+          <NotificationsDropdown />
         </div>
       </div>
     </header>

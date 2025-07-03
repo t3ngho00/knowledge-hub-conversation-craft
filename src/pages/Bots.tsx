@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { Plus, Search, Filter } from 'lucide-react';
+import { Plus, Search, Filter, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { BotCard, Bot } from '@/components/dashboard/BotCard';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const mockBots: Bot[] = [
   {
@@ -47,6 +46,8 @@ const mockBots: Bot[] = [
 
 export const Bots: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromDashboard = location.state?.from === 'dashboard';
 
   const handleEditBot = (bot: Bot) => {
     navigate(`/bots/${bot.id}/edit`);
@@ -60,9 +61,21 @@ export const Bots: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Bots</h1>
-          <p className="text-gray-600 mt-1">Manage your AI chatbots and their configurations</p>
+        <div className="flex items-center space-x-4">
+          {fromDashboard && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => navigate('/')}
+              className="p-2"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </Button>
+          )}
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Bots</h1>
+            <p className="text-gray-600 mt-1">Manage your AI chatbots and their configurations</p>
+          </div>
         </div>
         <Button 
           onClick={() => navigate('/bots/new')}
