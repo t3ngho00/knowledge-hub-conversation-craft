@@ -1,12 +1,12 @@
-
 import React, { useState, useCallback } from 'react';
-import { Save, Play, Eye, History, Plus, Settings, MessageSquare, GitBranch, Database, Zap } from 'lucide-react';
+import { Save, Play, Eye, History, Plus, Settings, MessageSquare, GitBranch, Database, Zap, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
+import { useNavigate } from 'react-router-dom';
 
 interface FlowNode {
   id: string;
@@ -45,9 +45,15 @@ const nodeTypeColors = {
 export const BotBuilder: React.FC = () => {
   const [selectedNode, setSelectedNode] = useState<FlowNode | null>(null);
   const [botName, setBotName] = useState('Customer Support Bot');
+  const navigate = useNavigate();
 
   const handleNodeClick = (node: FlowNode) => {
     setSelectedNode(node);
+  };
+
+  const handleCancel = () => {
+    // Navigate back to bots page
+    navigate('/bots');
   };
 
   return (
@@ -75,6 +81,10 @@ export const BotBuilder: React.FC = () => {
             <Eye className="w-4 h-4 mr-1" />
             Preview
           </Button>
+          <Button size="sm" variant="outline" onClick={handleCancel} className="whitespace-nowrap">
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Cancel
+          </Button>
         </div>
       </div>
 
@@ -90,7 +100,7 @@ export const BotBuilder: React.FC = () => {
             />
             <Badge variant="outline">Draft</Badge>
           </div>
-          <div className="flex space-x-2">
+          <div className="flex space-x-2 flex-wrap">
             <Button size="sm">
               <Save className="w-4 h-4 mr-1" />
               Save
@@ -102,6 +112,10 @@ export const BotBuilder: React.FC = () => {
             <Button size="sm" variant="outline">
               <Eye className="w-4 h-4 mr-1" />
               Preview
+            </Button>
+            <Button size="sm" variant="outline" onClick={handleCancel}>
+              <ArrowLeft className="w-4 h-4 mr-1" />
+              Cancel
             </Button>
           </div>
         </div>

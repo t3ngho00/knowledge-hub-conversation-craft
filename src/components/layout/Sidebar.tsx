@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -9,7 +8,7 @@ import {
   Users, 
   Folder,
   Plus,
-  X
+  ChevronLeft
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -45,7 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) =
   const navigate = useNavigate();
 
   const sidebarClasses = cn(
-    "w-64 bg-white border-r border-gray-200 flex flex-col transition-transform duration-300 ease-in-out fixed inset-y-0 left-0 z-50",
+    "w-64 bg-white border-r border-gray-200 flex flex-col transition-all duration-300 ease-in-out fixed inset-y-0 left-0 z-50",
     isMobile 
       ? `${isOpen ? "translate-x-0" : "-translate-x-full"}`
       : "translate-x-0"
@@ -60,15 +59,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) =
 
   return (
     <div className={sidebarClasses}>
-      {/* Close button - always visible */}
+      {/* Close button with arrow icon */}
       <div className="flex justify-end p-4">
         <Button
           variant="ghost"
           size="sm"
           onClick={handleCloseClick}
-          className="h-8 w-8 p-0"
+          className="h-8 w-8 p-0 hover:bg-gray-100"
         >
-          <X className="h-4 w-4" />
+          <ChevronLeft className="h-4 w-4" />
         </Button>
       </div>
 

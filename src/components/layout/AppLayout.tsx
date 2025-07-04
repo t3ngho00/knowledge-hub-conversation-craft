@@ -13,10 +13,12 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const isMobile = useIsMobile();
 
   const handleCloseSidebar = () => {
+    console.log('Closing sidebar');
     setSidebarOpen(false);
   };
 
   const handleOpenSidebar = () => {
+    console.log('Opening sidebar');
     setSidebarOpen(true);
   };
 
@@ -27,7 +29,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         onClose={handleCloseSidebar} 
         isMobile={isMobile} 
       />
-      <div className={`flex-1 flex flex-col ${!isMobile ? 'ml-64' : ''}`}>
+      <div className={`flex-1 flex flex-col transition-all duration-300 ${!isMobile ? (sidebarOpen ? 'ml-64' : 'ml-0') : ''}`}>
         <Header onMenuClick={handleOpenSidebar} />
         <main className="flex-1 p-4 lg:p-6 overflow-auto">
           {children}
