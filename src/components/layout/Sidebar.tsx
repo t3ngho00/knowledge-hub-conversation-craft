@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { 
@@ -8,7 +9,7 @@ import {
   Users, 
   Folder,
   Plus,
-  ChevronLeft
+  ArrowLeft
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -59,26 +60,24 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) =
 
   return (
     <div className={sidebarClasses}>
-      {/* Close button with arrow icon */}
-      <div className="flex justify-end p-4">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={handleCloseClick}
-          className="h-8 w-8 p-0 hover:bg-gray-100"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-      </div>
-
-      {/* Logo and Brand */}
-      <div className="px-6 pb-6 border-b border-gray-200">
+      {/* Logo and Brand with Close Button */}
+      <div className="px-6 py-6 border-b border-gray-200 relative">
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-sm">AI</span>
           </div>
           <span className="text-xl font-semibold text-gray-900">ChatBot Hub</span>
         </div>
+        
+        {/* Arrow button in top right */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleCloseClick}
+          className="absolute top-4 right-4 h-8 w-8 p-0 hover:bg-gray-100"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </Button>
       </div>
 
       {/* Quick Action */}
